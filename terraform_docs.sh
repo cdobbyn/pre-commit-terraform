@@ -123,6 +123,8 @@ terraform_docs() {
       continue
     fi
 
+    printf "args: ${args}"
+
     if [[ "$terraform_docs_awk_file" == "0" ]]; then
       # shellcheck disable=SC2086
       terraform-docs md $args ./ > "$tmp_file"
