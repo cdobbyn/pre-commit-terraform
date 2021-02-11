@@ -51,7 +51,7 @@ terraform_docs_() {
   shift
   local -a -r files=("$@")
   
-  printf "terraform_docs_"
+  printf "terraform_docs_\n"
 
   local hack_terraform_docs
   hack_terraform_docs=$(terraform version | sed -n 1p | grep -c 0.12) || true
@@ -94,7 +94,7 @@ terraform_docs() {
   shift 2
   local -a -r files=("$@")
   
-  printf "terraform_docs"
+  printf "terraform_docs\n"
 
   declare -a paths
   declare -a tfvars_files
@@ -127,7 +127,7 @@ terraform_docs() {
       continue
     fi
 
-    printf "args: ${args}"
+    printf "args: ${args}\npath: ${path_uniq}\n\n"
 
     if [[ "$terraform_docs_awk_file" == "0" ]]; then
       # shellcheck disable=SC2086
