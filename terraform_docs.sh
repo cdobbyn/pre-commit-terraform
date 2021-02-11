@@ -50,6 +50,8 @@ terraform_docs_() {
   local -r args="$1"
   shift
   local -a -r files=("$@")
+  
+  printf "terraform_docs_"
 
   local hack_terraform_docs
   hack_terraform_docs=$(terraform version | sed -n 1p | grep -c 0.12) || true
@@ -91,6 +93,8 @@ terraform_docs() {
   local -r args="$2"
   shift 2
   local -a -r files=("$@")
+  
+  printf "terraform_docs"
 
   declare -a paths
   declare -a tfvars_files
